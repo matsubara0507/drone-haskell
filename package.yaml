@@ -24,6 +24,7 @@ dependencies:
 - extensible
 - lens
 - req
+- text
 
 library:
   source-dirs: src

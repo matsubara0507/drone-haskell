@@ -23,4 +23,9 @@ type Repo = Record
     , "allow_push"     >: Bool
     , "allow_deploys"  >: Bool
     , "allow_tags"     >: Bool
+    , "visibility"     >: Text
+    , "gated"          >: Bool
+    , "active"         >: Bool
+    , "last_build"     >: Int
+    , "config_file"    >: Text
     ]

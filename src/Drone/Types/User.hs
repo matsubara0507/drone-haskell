@@ -11,6 +11,5 @@ type User = Record
     , "login"      >: Text
     , "email"      >: Text
     , "avatar_url" >: Text
-    , "admin"      >: Bool
     , "active"     >: Bool
     ]

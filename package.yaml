@@ -20,8 +20,10 @@ ghc-options:
 - -Wredundant-constraints
 
 dependencies:
+- aeson
 - base >= 4.7 && < 5
 - bytestring
+- containers
 - data-default-class
 - extensible
 - lens

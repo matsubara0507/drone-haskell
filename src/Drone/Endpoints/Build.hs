@@ -15,7 +15,7 @@ getBuild c owner repo num = req GET url NoReqBody jsonResponse opt
     opt = mkHeader c
 
 getBuilds ::
-  (MonadHttp m, Client c) => c -> Text -> Text -> m (JsonResponse Build)
+  (MonadHttp m, Client c) => c -> Text -> Text -> m (JsonResponse [Build])
 getBuilds c owner repo = req GET url NoReqBody jsonResponse opt
   where
     url = baseUrl c /: "repos" /: owner /: repo /: "builds"

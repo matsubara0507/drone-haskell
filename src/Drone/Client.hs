@@ -22,6 +22,7 @@ import           Network.HTTP.Req
 
 type BaseClient = Record
    '[ "host"  >: Text
+    , "port"  >: Maybe Int
     , "token" >: ByteString
     ]
 
@@ -42,7 +43,7 @@ instance Client HttpClient where
 instance Client HttpsClient where
   type ClientScheme HttpsClient = 'Https
   baseUrl (HttpsClient c) = https (c ^. #host)
-  mkHeader (HttpsClient c) = header "Authorization" ("Bearer " <> c ^. #token)
+  mkHeader (HttpsClient c) = header "Authorization" ("Bearer " <> c ^. #token) <> maybe mempty port (c ^. #port)
 
 mkUrl :: Client c => c -> [Text] -> Url (ClientScheme c)
 mkUrl c = foldl (/:) (baseUrl c)

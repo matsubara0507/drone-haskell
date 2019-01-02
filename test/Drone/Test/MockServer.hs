@@ -29,6 +29,9 @@ type UserAPI
      = "user"  :> Get '[JSON] User
   :<|> "users" :> Get '[JSON] [User]
   :<|> "users" :> Capture "login" Text :> Get '[JSON] User
+  :<|> "users" :> ReqBody '[JSON] User :> Post '[JSON] User
+  :<|> "users" :> Capture "login" Text :> ReqBody '[JSON] User :> Patch '[JSON] User
+  :<|> "users" :> Capture "login" Text :> Delete '[JSON] ()
 
 api :: Proxy API
 api = Proxy
@@ -37,7 +40,10 @@ server :: Fixtures -> Server API
 server fixtures
      = pure (fixtures ^. #user)
   :<|> pure (fixtures ^. #users)
-  :<|> \_ -> pure (fixtures ^. #user)
+  :<|> (\_ -> pure $ fixtures ^. #user)
+  :<|> (\user -> pure user)
+  :<|> (\_ user -> pure user)
+  :<|> (\_ -> pure ())
 
 mockServer :: Fixtures -> IO ()
 mockServer = run 8080 . serve api . server

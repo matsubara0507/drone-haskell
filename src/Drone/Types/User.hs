@@ -10,7 +10,7 @@ type User = Record
    '[ "id"         >: Int
     , "login"      >: Text
     , "email"      >: Text
-    , "avatar" >: Text
+    , "avatar"     >: Text
     , "active"     >: Bool
     , "admin"      >: Bool
     , "machine"    >: Bool

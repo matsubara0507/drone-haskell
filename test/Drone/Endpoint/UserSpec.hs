@@ -23,10 +23,25 @@ spec golden = do
   describe "getUser: endpoint GET /api/user/%s" $ do
     context "correct responce" $ do
       it "should return User as response body" $ do
-        response <- runReq def $ getUser Test.client "hoge"
+        response <- runReq def $ getUser Test.client "octocat"
         (responseBody response) `shouldBe` golden ^. #user
   describe "getUsers: endpoint GET /api/users" $ do
     context "correct responce" $ do
       it "should return [User] as response body" $ do
         response <- runReq def $ getUsers Test.client
         (responseBody response) `shouldBe` golden ^. #users
+  describe "createUser: endpoint GET /api/users" $ do
+    context "correct responce" $ do
+      it "should return [User] as response body" $ do
+        response <- runReq def $ createUser Test.client (golden ^. #user)
+        (responseBody response) `shouldBe` golden ^. #user
+  describe "updateUser: endpoint GET /api/user/%s" $ do
+    context "correct responce" $ do
+      it "should return User as response body" $ do
+        response <- runReq def $ updateUser Test.client (golden ^. #user)
+        (responseBody response) `shouldBe` golden ^. #user
+  describe "deleteUser: endpoint GET /api/user/%s" $ do
+    context "correct responce" $ do
+      it "should return User as response body" $ do
+        response <- runReq def $ deleteUser Test.client "octocat"
+        (responseBody response) `shouldBe` ()

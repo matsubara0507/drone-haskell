@@ -45,3 +45,6 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - drone
+    - hspec
+    - servant-server
+    - warp

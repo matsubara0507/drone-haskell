@@ -12,7 +12,6 @@ $ stack ghci
 >> import Data.Default.Class
 >> token = ...
 >> client = HttpClient (#host @= "localhost" <: #token @= token <: nil)
->> runReq def $ getLoginUser client
->> rsp <- runReq def $ getLoginUser client
+>> rsp <- runReq def $ getSelf client
 >> responseBody rsp
 ```

@@ -3,6 +3,7 @@ module Main where
 import           Test.Hspec
 
 import qualified Drone.Endpoint.BuildSpec
+import qualified Drone.Endpoint.CronSpec
 import qualified Drone.Endpoint.LogSpec
 import qualified Drone.Endpoint.RepoSpec
 import qualified Drone.Endpoint.UserSpec
@@ -21,3 +22,4 @@ spec fixtures golden = around_ (runMockServer fixtures) $ do
   describe "Drone.Endpoints.Repo"  $ Drone.Endpoint.RepoSpec.spec golden
   describe "Drone.Endpoints.Build" $ Drone.Endpoint.BuildSpec.spec golden
   describe "Drone.Endpoints.Log"   $ Drone.Endpoint.LogSpec.spec golden
+  describe "Drone.Endpoints.Cron"  $ Drone.Endpoint.CronSpec.spec golden

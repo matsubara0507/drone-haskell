@@ -21,9 +21,16 @@ type Cron = Record
     , "updated"  >: Int
     ]
 
-type CronPatch = Record
+type CronPatch = Nullable (Field Identity) :* CronPatchFields
+
+type CronPatchFields =
    '[ "event"    >: Text
     , "branch"   >: Text
     -- , "target"   >: Text
     , "disabled" >: Bool
     ]
+
+type CronPatch' = Record CronPatchFields
+
+toCronPatch :: Cron -> CronPatch
+toCronPatch repo = wrench (shrink repo :: CronPatch')

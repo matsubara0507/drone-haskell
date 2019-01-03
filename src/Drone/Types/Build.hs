@@ -4,7 +4,6 @@
 
 module Drone.Types.Build where
 
-import           Data.Aeson
 import           Data.Extensible
 import           Data.Map        (Map)
 import           Data.Text       (Text)
@@ -84,45 +83,4 @@ type Step = Record
     , "started"   >: Maybe Int
     , "stopped"   >: Maybe Int
     , "version"   >: Int
-    ]
-
-newtype Proc = Proc ProcRecord
-  deriving (Show, Eq, FromJSON, ToJSON)
-
-type ProcRecord = Record
-   '[ "id"         >: Int
-    , "build_id"   >: Int
-    , "pid"        >: Int
-    , "ppid"       >: Int
-    , "pgid"       >: Int
-    , "name"       >: Text
-    , "state"      >: Text
-    , "error"      >: Text
-    , "exit_code"  >: Int
-    , "start_time" >: Maybe Int
-    , "end_time"   >: Maybe Int
-    , "machine"    >: Maybe Text
-    , "platform"   >: Maybe Text
-    , "environ"    >: Maybe (Map Text Text)
-    , "children"   >: Maybe [Proc]
-    ]
-
-type File = Record
-   '[ "id"      >: Int
-    , "proc_id" >: Int
-    , "pid"     >: Int
-    , "name"    >: Text
-    , "size"    >: Int
-    , "mime"    >: Text
-    , "time"    >: Int
-    , "passed"  >: Int
-    , "failed"  >: Int
-    , "skipped" >: Int
-    ]
-
-type Logs = [Log]
-type Log = Record
-   '[ "proc" >: Text
-    , "pos"  >: Int
-    , "out"  >: Text
     ]

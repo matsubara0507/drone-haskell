@@ -20,3 +20,10 @@ type Cron = Record
     , "created"  >: Int
     , "updated"  >: Int
     ]
+
+type CronPatch = Record
+   '[ "event"    >: Text
+    , "branch"   >: Text
+    -- , "target"   >: Text
+    , "disabled" >: Bool
+    ]

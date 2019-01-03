@@ -7,9 +7,8 @@ import           Data.Extensible
 import           Data.Text       (Text)
 
 type Secret = Record
-   '[ "id"    >: Int
-    , "name"  >: Text
-    , "value" >: Maybe Text
-    , "image" >: [Text]
-    , "event" >: [Text]
+   '[ "name"              >: Text
+    , "data"              >: Maybe Text
+    , "pull_request"      >: Maybe Bool
+    , "pull_request_push" >: Maybe Bool
     ]

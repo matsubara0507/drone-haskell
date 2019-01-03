@@ -26,7 +26,6 @@ dependencies:
 - containers
 - data-default-class
 - extensible
-- lens
 - req
 - text
 - formatting

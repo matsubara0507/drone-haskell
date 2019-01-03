@@ -13,11 +13,11 @@ module Drone.Client
   , module X
   ) where
 
-import           Control.Lens      ((^.))
 import           Data.ByteString   (ByteString)
 import           Data.Extensible
 import           Data.Text         (Text)
 import           Drone.Client.Path as X (Paths, format, paths)
+import           Lens.Micro        ((^.))
 import           Network.HTTP.Req
 
 type BaseClient = Record

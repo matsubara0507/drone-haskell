@@ -3,10 +3,10 @@
 
 module Drone.Endpoints.Secret where
 
-import           Control.Lens     ((^.))
 import           Data.Text        (Text)
 import           Drone.Client
 import           Drone.Types
+import           Lens.Micro       ((^.))
 import           Network.HTTP.Req
 
 getSecret ::

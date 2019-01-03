@@ -11,35 +11,79 @@ import           Data.Text       (Text)
 
 type Build = Record
    '[ "id"            >: Int
+    , "repo_id"       >: Int
+    , "trigger"       >: Text
     , "number"        >: Int
-    , "parent"        >: Int
-    , "event"         >: Text
+    , "parent"        >: Maybe Int
     , "status"        >: Text
-    , "error"         >: Text
-    , "enqueued_at"   >: Int
-    , "created_at"    >: Int
-    , "started_at"    >: Int
-    , "finished_at"   >: Int
-    , "deploy_to"     >: Text
-    , "commit"        >: Text
-    , "branch"        >: Text
-    , "ref"           >: Text
-    , "refspec"       >: Text
-    , "remote"        >: Text
-    , "title"         >: Text
-    , "message"       >: Text
+    , "error"         >: Maybe Text
+    , "event"         >: Text
+    , "action"        >: Text
+    , "link"          >: Text
     , "timestamp"     >: Int
-    , "sender"        >: Text
-    , "author"        >: Text
-    , "author_avatar" >: Text
+    , "title"         >: Maybe Text
+    , "message"       >: Text
+    , "before"        >: Text
+    , "after"         >: Text
+    , "ref"           >: Text
+    , "source_repo"   >: Text
+    , "source"        >: Text
+    , "target"        >: Text
+    , "author_login"  >: Text
+    , "author_name"   >: Text
     , "author_email"  >: Text
-    , "link_url"      >: Text
-    , "signed"        >: Bool
-    , "verified"      >: Bool
-    , "reviewed_by"   >: Text
-    , "reviewed_at"   >: Int
-    , "procs"         >: Maybe [Proc]
-    , "files"         >: Maybe [File]
+    , "author_avatar" >: Text
+    , "sender"        >: Text
+    , "params"        >: Maybe (Map Text Text)
+    , "deploy_to"     >: Maybe Text
+    , "started"       >: Int
+    , "finished"      >: Int
+    , "created"       >: Int
+    , "updated"       >: Int
+    , "version"       >: Int
+    , "stages"        >: Maybe [Stage]
+    ]
+
+type Stage = Record
+   '[ "id"         >: Int
+    , "build_id"   >: Int
+    , "number"     >: Int
+    , "name"       >: Text
+    , "kind"       >: Maybe Text
+    , "type"       >: Maybe Text
+    , "status"     >: Text
+    , "error"      >: Maybe Text
+    , "errignore"  >: Bool
+    , "exit_code"  >: Int
+    , "machine"    >: Maybe Text
+    , "os"         >: Text
+    , "arch"       >: Text
+    , "variant"    >: Maybe Text
+    , "kernel"     >: Maybe Text
+    , "started"    >: Int
+    , "stopped"    >: Int
+    , "created"    >: Int
+    , "updated"    >: Int
+    , "version"    >: Int
+    , "on_success" >: Bool
+    , "on_failure" >: Bool
+    , "depends_on" >: Maybe [Text]
+    , "labels"     >: Maybe (Map Text Text)
+    , "steps"      >: Maybe [Step]
+    ]
+
+type Step = Record
+   '[ "id"        >: Int
+    , "step_id"   >: Int
+    , "number"    >: Int
+    , "name"      >: Text
+    , "status"    >: Text
+    , "error"     >: Maybe Text
+    , "errignore" >: Maybe Bool
+    , "exit_code" >: Int
+    , "started"   >: Maybe Int
+    , "stopped"   >: Maybe Int
+    , "version"   >: Int
     ]
 
 newtype Proc = Proc ProcRecord

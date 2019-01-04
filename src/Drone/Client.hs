@@ -38,12 +38,12 @@ class Client a where
 instance Client HttpClient where
   type ClientScheme HttpClient = 'Http
   baseUrl (HttpClient c) = http (c ^. #host)
-  mkHeader (HttpClient c) = header "Authorization" ("Bearer " <> c ^. #token)
+  mkHeader (HttpClient c) = header "Authorization" ("Bearer " <> c ^. #token) <> maybe mempty port (c ^. #port)
 
 instance Client HttpsClient where
   type ClientScheme HttpsClient = 'Https
   baseUrl (HttpsClient c) = https (c ^. #host)
-  mkHeader (HttpsClient c) = header "Authorization" ("Bearer " <> c ^. #token) <> maybe mempty port (c ^. #port)
+  mkHeader (HttpsClient c) = header "Authorization" ("Bearer " <> c ^. #token)
 
 mkUrl :: Client c => c -> [Text] -> Url (ClientScheme c)
 mkUrl c = foldl (/:) (baseUrl c)

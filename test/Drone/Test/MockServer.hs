@@ -16,7 +16,7 @@ import           Control.Concurrent
 import           Data.Extensible          (type (>:), Record)
 import           Data.Text                (Text)
 import           Drone.Test.Fixture       (Fixtures)
-import           Drone.Types
+import           Drone.Types              hiding (Server)
 import           Lens.Micro               ((^.))
 import           Network.Wai.Handler.Warp
 import           Servant

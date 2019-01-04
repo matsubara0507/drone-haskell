@@ -9,47 +9,44 @@ module Drone.Types.Repo
   , toRepoPatch
   )where
 
-import           Control.Lens    ((^.))
 import           Data.Extensible
 import           Data.Text       (Text)
 
 type Repo = Record
    '[ "id"             >: Int
-    , "scm"            >: Text
-    , "owner"          >: Text
+    , "uid"            >: Text
+    , "user_id"        >: Int
+    , "namespace"      >: Text
     , "name"           >: Text
-    , "full_name"      >: Text
-    , "avatar_url"     >: Text
-    , "link_url"       >: Text
-    , "clone_url"      >: Text
+    , "slug"           >: Text
+    , "scm"            >: Text
+    , "git_http_url"   >: Text
+    , "git_ssh_url"    >: Text
+    , "link"           >: Text
     , "default_branch" >: Text
-    , "timeout"        >: Int
     , "private"        >: Bool
-    , "trusted"        >: Bool
-    , "allow_pr"       >: Bool
-    , "allow_push"     >: Bool
-    , "allow_deploys"  >: Bool
-    , "allow_tags"     >: Bool
     , "visibility"     >: Text
-    , "gated"          >: Bool
     , "active"         >: Bool
-    , "last_build"     >: Int
-    , "config_file"    >: Text
+    , "config_path"    >: Text
+    , "trusted"        >: Bool
+    , "protected"      >: Bool
+    , "timeout"        >: Int
+    , "counter"        >: Int
+    , "synced"         >: Int
+    , "created"        >: Int
+    , "updated"        >: Int
+    , "version"        >: Int
     ]
 
 type RepoPatch = Nullable (Field Identity) :* RepoPatchFields
 
 type RepoPatchFields =
-   '[ "config_file"   >: Text
-    , "gated"         >: Bool
-    , "trusted"       >: Bool
-    , "timeout"       >: Int
-    , "visibility"    >: Text
-    , "allow_pr"      >: Bool
-    , "allow_push"    >: Bool
-    , "allow_deploys" >: Bool
-    , "allow_tags"    >: Bool
-    , "build_counter" >: Int
+   '[ "config_path" >: Text
+    , "protected"   >: Bool
+    , "trusted"     >: Bool
+    , "timeout"     >: Int
+    , "visibility"  >: Text
+    , "counter"     >: Int
     ]
 
 type RepoPatch' = Record RepoPatchFields
@@ -58,4 +55,4 @@ toRepoPatch :: Repo -> RepoPatch
 toRepoPatch repo = wrench patch
   where
     patch :: RepoPatch'
-    patch = shrink (#build_counter @= (repo ^. #last_build) <: repo)
+    patch = shrink repo

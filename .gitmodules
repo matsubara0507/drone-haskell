@@ -1,0 +1,3 @@
+[submodule "fixture"]
+	path = fixture
+	url = https://github.com/drone/drone-go.git

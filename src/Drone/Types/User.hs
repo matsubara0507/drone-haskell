@@ -10,6 +10,13 @@ type User = Record
    '[ "id"         >: Int
     , "login"      >: Text
     , "email"      >: Text
-    , "avatar_url" >: Text
+    , "avatar"     >: Text
     , "active"     >: Bool
+    , "admin"      >: Bool
+    , "machine"    >: Bool
+    , "syncing"    >: Bool
+    , "synced"     >: Int
+    , "created"    >: Int
+    , "updated"    >: Int
+    , "last_login" >: Int
     ]

@@ -7,10 +7,10 @@ import           Data.Extensible
 import           Data.Text       (Text)
 
 type Registry = Record
-   '[ "id"       >: Int
-    , "address"  >: Text
+   '[ "address"  >: Text
     , "username" >: Text
-    , "password" >: Text
+    , "password" >: Maybe Text
     , "email"    >: Text
     , "token"    >: Text
+    , "policy"   >: Maybe Text
     ]

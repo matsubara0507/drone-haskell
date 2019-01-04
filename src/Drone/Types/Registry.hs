@@ -12,5 +12,5 @@ type Registry = Record
     , "password" >: Maybe Text
     , "email"    >: Text
     , "token"    >: Text
-    , "policy"   >: MaybeText
+    , "policy"   >: Maybe Text
     ]

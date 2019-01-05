@@ -8,7 +8,7 @@ steps:
 - name: submodules
   image: docker:git
   commands:
-  - git submodule update --recursive --remote
+  - git submodule update --recursive --init
 
 - name: test
   image: haskell:8.6

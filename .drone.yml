@@ -22,8 +22,8 @@ steps:
 - name: test
   image: haskell:8.6
   commands:
-  - stack --no-terminal --install-ghc test --bench --only-dependencies
-  - stack --no-terminal test --bench --no-run-benchmarks --no-haddock-deps --pedantic
+  - stack --no-terminal --stack-root .stack --install-ghc test --bench --only-dependencies
+  - stack --no-terminal --stack-root .stack test --bench --no-run-benchmarks --no-haddock-deps --pedantic
 
 - name: rebuild
   image: homerovalle/drone-gcs-cache
@@ -34,7 +34,7 @@ steps:
       from_secret: gcs-access-json-key
     rebuild: true
     mount:
-      - $HOME/.stack/
+      - .stack/
       - .stack-work
     when:
       event: push

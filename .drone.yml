@@ -10,7 +10,6 @@ steps:
   commands:
   - git submodule update --recursive --remote
 
-steps:
 - name: test
   image: haskell:8.6
   commands:

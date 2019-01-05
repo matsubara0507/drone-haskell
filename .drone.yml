@@ -1,0 +1,9 @@
+kind: pipeline
+name: default
+
+steps:
+- name: test
+  image: haskell:8.6
+  commands:
+  - stack --no-terminal --install-ghc test --bench --only-dependencies
+  - stack --no-terminal test --bench --no-run-benchmarks --no-haddock-deps --pedantic

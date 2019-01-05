@@ -22,8 +22,8 @@ steps:
 - name: test
   image: haskell:8.6
   commands:
-  - stack --no-terminal --stack-root .stack --install-ghc test --bench --only-dependencies
-  - stack --no-terminal --stack-root .stack test --bench --no-run-benchmarks --no-haddock-deps --pedantic
+  - stack --no-terminal --stack-root `pwd`/.stack --install-ghc test --bench --only-dependencies
+  - stack --no-terminal --stack-root `pwd`/.stack test --bench --no-run-benchmarks --no-haddock-deps --pedantic
 
 - name: rebuild
   image: homerovalle/drone-gcs-cache

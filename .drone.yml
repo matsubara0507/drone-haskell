@@ -34,6 +34,7 @@ steps:
       from_secret: gcs-access-json-key
     rebuild: true
     mount:
+      - $HOME/.stack/
       - .stack-work
     when:
       event: push
@@ -46,4 +47,4 @@ steps:
     json_key:
       from_secret: gcs-access-json-key
     flush: true
-    flush_age: 14  
+    flush_age: 14

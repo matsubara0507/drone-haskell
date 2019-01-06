@@ -1,5 +1,8 @@
 # drone-haskell
 
+[![Build Status](https://travis-ci.org/matsubara0507/drone-haskell.svg?branch=master)](https://travis-ci.org/matsubara0507/drone-haskell)
+[![Build Status](https://cloud.drone.io/api/badges/matsubara0507/drone-haskell/status.svg)](https://cloud.drone.io/matsubara0507/drone-haskell)
+
 Haskell client for the [Drone](https://github.com/drone/drone) API
 
 ## USAGE

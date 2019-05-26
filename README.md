@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/matsubara0507/drone-haskell.svg?branch=master)](https://travis-ci.org/matsubara0507/drone-haskell)
 [![Build Status](https://cloud.drone.io/api/badges/matsubara0507/drone-haskell/status.svg)](https://cloud.drone.io/matsubara0507/drone-haskell)
+[![Hackage](https://img.shields.io/hackage/v/drone.svg?style=flat)](https://hackage.haskell.org/package/drone)
 
 Haskell client for the [Drone](https://github.com/drone/drone) API
 
@@ -23,10 +24,9 @@ $ stack ghci
 >> :set -XOverloadedStrings -XOverloadedLabels
 >> import Data.Extensible
 >> import Network.HTTP.Req
->> import Data.Default.Class
 >> token = ...
 >> client = HttpClient (#host @= "localhost" <: #port @= Nothing <: #token @= token <: nil)
->> rsp <- runReq def $ getSelf client
+>> rsp <- runReq defaultHttpConfig $ getSelf client
 >> responseBody rsp
 ```
 

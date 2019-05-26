@@ -1,5 +1,5 @@
 name:                drone
-version:             1.0.0.0
+version:             1.0.1
 github:              "matsubara0507/drone-haskell"
 license:             MIT
 author:              "MATSUBARA Nobutada"
@@ -20,16 +20,14 @@ ghc-options:
 - -Wredundant-constraints
 
 dependencies:
-- aeson
 - base >= 4.7 && < 5
 - bytestring
-- containers
-- data-default-class
-- extensible
-- req
-- text
-- formatting
+- containers >= 0.5.4
+- extensible >= 0.4.8
+- formatting >= 6.3.0
 - microlens
+- req >= 1.0.0
+- text
 
 library:
   source-dirs: src
@@ -47,3 +45,5 @@ tests:
     - hspec
     - servant-server
     - warp
+    - aeson
+    - req >= 2.0.0

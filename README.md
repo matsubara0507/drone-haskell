@@ -23,10 +23,9 @@ $ stack ghci
 >> :set -XOverloadedStrings -XOverloadedLabels
 >> import Data.Extensible
 >> import Network.HTTP.Req
->> import Data.Default.Class
 >> token = ...
 >> client = HttpClient (#host @= "localhost" <: #port @= Nothing <: #token @= token <: nil)
->> rsp <- runReq def $ getSelf client
+>> rsp <- runReq defaultHttpConfig $ getSelf client
 >> responseBody rsp
 ```
 

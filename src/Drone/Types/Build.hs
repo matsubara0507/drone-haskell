@@ -5,21 +5,22 @@
 module Drone.Types.Build where
 
 import           Data.Extensible
+import           Data.Int        (Int64)
 import           Data.Map        (Map)
 import           Data.Text       (Text)
 
 type Build = Record
-   '[ "id"            >: Int
-    , "repo_id"       >: Int
+   '[ "id"            >: Int64
+    , "repo_id"       >: Int64
     , "trigger"       >: Text
-    , "number"        >: Int
-    , "parent"        >: Maybe Int
+    , "number"        >: Int64
+    , "parent"        >: Maybe Int64
     , "status"        >: Text
     , "error"         >: Maybe Text
     , "event"         >: Text
     , "action"        >: Text
     , "link"          >: Text
-    , "timestamp"     >: Int
+    , "timestamp"     >: Int64
     , "title"         >: Maybe Text
     , "message"       >: Text
     , "before"        >: Text
@@ -35,17 +36,17 @@ type Build = Record
     , "sender"        >: Text
     , "params"        >: Maybe (Map Text Text)
     , "deploy_to"     >: Maybe Text
-    , "started"       >: Int
-    , "finished"      >: Int
-    , "created"       >: Int
-    , "updated"       >: Int
-    , "version"       >: Int
+    , "started"       >: Int64
+    , "finished"      >: Int64
+    , "created"       >: Int64
+    , "updated"       >: Int64
+    , "version"       >: Int64
     , "stages"        >: Maybe [Stage]
     ]
 
 type Stage = Record
-   '[ "id"         >: Int
-    , "build_id"   >: Int
+   '[ "id"         >: Int64
+    , "build_id"   >: Int64
     , "number"     >: Int
     , "name"       >: Text
     , "kind"       >: Maybe Text
@@ -59,11 +60,11 @@ type Stage = Record
     , "arch"       >: Text
     , "variant"    >: Maybe Text
     , "kernel"     >: Maybe Text
-    , "started"    >: Int
-    , "stopped"    >: Int
-    , "created"    >: Int
-    , "updated"    >: Int
-    , "version"    >: Int
+    , "started"    >: Int64
+    , "stopped"    >: Int64
+    , "created"    >: Int64
+    , "updated"    >: Int64
+    , "version"    >: Int64
     , "on_success" >: Bool
     , "on_failure" >: Bool
     , "depends_on" >: Maybe [Text]
@@ -72,15 +73,15 @@ type Stage = Record
     ]
 
 type Step = Record
-   '[ "id"        >: Int
-    , "step_id"   >: Int
+   '[ "id"        >: Int64
+    , "step_id"   >: Int64
     , "number"    >: Int
     , "name"      >: Text
     , "status"    >: Text
     , "error"     >: Maybe Text
     , "errignore" >: Maybe Bool
     , "exit_code" >: Int
-    , "started"   >: Maybe Int
-    , "stopped"   >: Maybe Int
-    , "version"   >: Int
+    , "started"   >: Maybe Int64
+    , "stopped"   >: Maybe Int64
+    , "version"   >: Int64
     ]

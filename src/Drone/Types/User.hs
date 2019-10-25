@@ -4,10 +4,11 @@
 module Drone.Types.User where
 
 import           Data.Extensible
+import           Data.Int        (Int64)
 import           Data.Text       (Text)
 
 type User = Record
-   '[ "id"         >: Int
+   '[ "id"         >: Int64
     , "login"      >: Text
     , "email"      >: Text
     , "avatar"     >: Text
@@ -15,8 +16,8 @@ type User = Record
     , "admin"      >: Bool
     , "machine"    >: Bool
     , "syncing"    >: Bool
-    , "synced"     >: Int
-    , "created"    >: Int
-    , "updated"    >: Int
-    , "last_login" >: Int
+    , "synced"     >: Int64
+    , "created"    >: Int64
+    , "updated"    >: Int64
+    , "last_login" >: Int64
     ]

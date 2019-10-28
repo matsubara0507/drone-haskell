@@ -4,6 +4,7 @@
 module Drone.Types.Server where
 
 import           Data.Extensible
+import           Data.Int        (Int64)
 import           Data.Text       (Text)
 
 type Server = Record
@@ -22,10 +23,10 @@ type Server = Record
     , "ca_cert"  >: Text
     , "tls_key"  >: Text
     , "tls_cert" >: Text
-    , "created"  >: Int
-    , "updated"  >: Int
-    , "started"  >: Int
-    , "stopped"  >: Int
+    , "created"  >: Int64
+    , "updated"  >: Int64
+    , "started"  >: Int64
+    , "stopped"  >: Int64
     ]
 
 type Version = Record

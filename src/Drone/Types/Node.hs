@@ -4,11 +4,12 @@
 module Drone.Types.Node where
 
 import           Data.Extensible
+import           Data.Int        (Int64)
 import           Data.Map        (Map)
 import           Data.Text       (Text)
 
 type Node = Record
-   '[ "id"        >: Int
+   '[ "id"        >: Int64
     , "uid"       >: Text
     , "provider"  >: Text
     , "state"     >: Text
@@ -31,8 +32,8 @@ type Node = Record
     , "tls_cert"  >: Text
     , "paused"    >: Bool
     , "protected" >: Bool
-    , "created"   >: Int
-    , "updated"   >: Int
+    , "created"   >: Int64
+    , "updated"   >: Int64
     ]
 
 type NodePatch = Nullable (Field Identity) :* NodePatchFields

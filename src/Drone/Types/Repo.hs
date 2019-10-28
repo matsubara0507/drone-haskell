@@ -10,12 +10,13 @@ module Drone.Types.Repo
   )where
 
 import           Data.Extensible
+import           Data.Int        (Int64)
 import           Data.Text       (Text)
 
 type Repo = Record
-   '[ "id"             >: Int
+   '[ "id"             >: Int64
     , "uid"            >: Text
-    , "user_id"        >: Int
+    , "user_id"        >: Int64
     , "namespace"      >: Text
     , "name"           >: Text
     , "slug"           >: Text
@@ -30,12 +31,12 @@ type Repo = Record
     , "config_path"    >: Text
     , "trusted"        >: Bool
     , "protected"      >: Bool
-    , "timeout"        >: Int
+    , "timeout"        >: Int64
     , "counter"        >: Int
-    , "synced"         >: Int
-    , "created"        >: Int
-    , "updated"        >: Int
-    , "version"        >: Int
+    , "synced"         >: Int64
+    , "created"        >: Int64
+    , "updated"        >: Int64
+    , "version"        >: Int64
     ]
 
 type RepoPatch = Nullable (Field Identity) :* RepoPatchFields
@@ -44,7 +45,7 @@ type RepoPatchFields =
    '[ "config_path" >: Text
     , "protected"   >: Bool
     , "trusted"     >: Bool
-    , "timeout"     >: Int
+    , "timeout"     >: Int64
     , "visibility"  >: Text
     , "counter"     >: Int
     ]

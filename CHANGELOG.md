@@ -3,6 +3,7 @@
 ## Unreleased changes
 
 * fix type int to int64
+* add ignore file: `stack.yaml.lock`
 
 ## 1.0.1
 

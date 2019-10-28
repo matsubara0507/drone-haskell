@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+* fix type int to int64
+
 ## 1.0.1
 
 - Refactor dependent packages

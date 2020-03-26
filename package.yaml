@@ -23,7 +23,7 @@ dependencies:
 - base >= 4.7 && < 5
 - bytestring
 - containers >= 0.5.4
-- extensible >= 0.4.8
+- extensible >= 0.6
 - formatting >= 6.3.0
 - microlens
 - req >= 1.0.0

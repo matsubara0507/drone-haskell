@@ -4,9 +4,10 @@
 module Drone.Types.Node where
 
 import           Data.Extensible
-import           Data.Int        (Int64)
-import           Data.Map        (Map)
-import           Data.Text       (Text)
+import           Data.Functor.Identity (Identity)
+import           Data.Int              (Int64)
+import           Data.Map              (Map)
+import           Data.Text             (Text)
 
 type Node = Record
    '[ "id"        >: Int64
@@ -36,7 +37,7 @@ type Node = Record
     , "updated"   >: Int64
     ]
 
-type NodePatch = Nullable (Field Identity) :* NodePatchFields
+type NodePatch = NodePatchFields :& Nullable (Field Identity)
 
 type NodePatchFields =
    '[ "uid"       >: Text

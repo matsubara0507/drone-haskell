@@ -4,8 +4,9 @@
 module Drone.Types.Cron where
 
 import           Data.Extensible
-import           Data.Int        (Int64)
-import           Data.Text       (Text)
+import           Data.Functor.Identity (Identity)
+import           Data.Int              (Int64)
+import           Data.Text             (Text)
 
 type Cron = Record
    '[ "id"       >: Int64
@@ -22,7 +23,7 @@ type Cron = Record
     , "updated"  >: Int64
     ]
 
-type CronPatch = Nullable (Field Identity) :* CronPatchFields
+type CronPatch = CronPatchFields :& Nullable (Field Identity)
 
 type CronPatchFields =
    '[ "event"    >: Text

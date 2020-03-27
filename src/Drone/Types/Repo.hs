@@ -10,8 +10,9 @@ module Drone.Types.Repo
   )where
 
 import           Data.Extensible
-import           Data.Int        (Int64)
-import           Data.Text       (Text)
+import           Data.Functor.Identity (Identity)
+import           Data.Int              (Int64)
+import           Data.Text             (Text)
 
 type Repo = Record
    '[ "id"             >: Int64
@@ -39,7 +40,7 @@ type Repo = Record
     , "version"        >: Int64
     ]
 
-type RepoPatch = Nullable (Field Identity) :* RepoPatchFields
+type RepoPatch = RepoPatchFields :& Nullable (Field Identity)
 
 type RepoPatchFields =
    '[ "config_path" >: Text

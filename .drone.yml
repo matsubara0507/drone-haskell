@@ -1,6 +1,12 @@
 kind: pipeline
 name: default
 
+trigger:
+  ref:
+  - refs/heads/master
+  - refs/pull/**
+  - refs/tags/**
+
 clone:
   depth: 5
 

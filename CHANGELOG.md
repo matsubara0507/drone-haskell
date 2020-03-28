@@ -2,6 +2,8 @@
 
 ## Unreleased changes
 
+## 1.1.0
+
 * Fix: type int to int64
 * Misc: add ignore file: `stack.yaml.lock`
 * Misc: update dependencies with LTS 15

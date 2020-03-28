@@ -20,6 +20,5 @@ cabal.project.local
 cabal.project.local~
 .HTF/
 .ghc.environment.*
-*.cabal
 temp
 stack.yaml.lock

@@ -1,5 +1,5 @@
 name:                drone
-version:             1.0.1
+version:             1.1.0
 github:              "matsubara0507/drone-haskell"
 license:             MIT
 author:              "MATSUBARA Nobutada"
